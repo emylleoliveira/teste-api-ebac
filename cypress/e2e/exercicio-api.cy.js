@@ -49,7 +49,7 @@ describe('Testes da Funcionalidade Usuários', () => {
 
   it('Deve editar um usuário previamente cadastrado - PUT', () => {
    let email = `Emylle@ebac${Math.floor(Math.random() * 1000000)}.com`
-   cy.cadastrarUsuario('Emylle Oliveira', email, 'teste editado','true')
+   cy.cadastrarUsuario('Emylle Oliveira', email, 'teste','true')
    .then(response=>{
     let id = response.body._id
     cy.request({
@@ -58,7 +58,7 @@ describe('Testes da Funcionalidade Usuários', () => {
       body: {
         "nome": "Emylle Oliveira",
         "email": email,
-        "password": "teste",
+        "password": "teste editado",
         "administrador": "true"
       }
 
